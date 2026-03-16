@@ -57,9 +57,11 @@
     <Compile Include="Assets\Scripts\Managers\FloorController.cs" />
     <Compile Include="Assets\Scripts\SceneBootstrapper.cs" />
     <Compile Include="Assets\Scripts\Boot.cs" />
+    <Compile Include="Assets\Scripts\DashBoardView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\BuildingLevelSelector.uxml" />
+    <None Include="Assets\UI\UIDashboard.uxml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
