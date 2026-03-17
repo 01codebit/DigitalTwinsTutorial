@@ -363,6 +363,7 @@ MonoBehaviour:
   - Floor_02
   - Floor_03
   - Floor_04
+  - UI
 --- !u!114 &2604468996449316027
 MonoBehaviour:
   m_ObjectHideFlags: 0
