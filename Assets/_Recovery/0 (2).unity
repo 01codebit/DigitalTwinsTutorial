@@ -179,6 +179,34 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2210689607011403519, guid: b37d428898fe01147809a485ac97ec58, type: 3}
   m_PrefabInstance: {fileID: 2604468996449316021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2043518824 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4161853974687024539, guid: b37d428898fe01147809a485ac97ec58, type: 3}
+  m_PrefabInstance: {fileID: 2604468996449316021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2043518826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8913356486651322575, guid: b37d428898fe01147809a485ac97ec58, type: 3}
+  m_PrefabInstance: {fileID: 2604468996449316021}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043518824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.UIElements.UIDocument
+--- !u!114 &2043518827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043518824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 030e78cbe12210447b04a6e39917aef2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DashboardView
 --- !u!1001 &2604468996449316021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -194,7 +222,7 @@ PrefabInstance:
     - target: {fileID: 1636797420610379142, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       propertyPath: _dashboard
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2043518826}
     - target: {fileID: 1636797420610379142, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       propertyPath: _exteriorBuilding
       value: 
@@ -282,7 +310,6 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8587075983630428903, guid: b37d428898fe01147809a485ac97ec58, type: 3}
-    - {fileID: 4161853974687024539, guid: b37d428898fe01147809a485ac97ec58, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2210689607011403519, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       insertIndex: -1
@@ -297,6 +324,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8335134994893693867, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2604468996449316027}
+    - targetCorrespondingSourceObject: {fileID: 4161853974687024539, guid: b37d428898fe01147809a485ac97ec58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2043518827}
   m_SourcePrefab: {fileID: 100100000, guid: b37d428898fe01147809a485ac97ec58, type: 3}
 --- !u!1 &2604468996449316022 stripped
 GameObject:

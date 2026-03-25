@@ -56,12 +56,16 @@
     <Compile Include="Assets\Scripts\Authoring\FloorAuthoring.cs" />
     <Compile Include="Assets\Scripts\Managers\FloorController.cs" />
     <Compile Include="Assets\Scripts\SceneBootstrapper.cs" />
+    <Compile Include="Assets\Scripts\Authoring\DeviceAuthoring.cs" />
     <Compile Include="Assets\Scripts\Boot.cs" />
     <Compile Include="Assets\Scripts\DashBoardView.cs" />
+    <Compile Include="Assets\Scripts\UI\TopBarUI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\TopBar.uxml" />
+    <None Include="Assets\UI\WS_Marker.uxml" />
     <None Include="Assets\UI\ToolBar.uss" />
+    <None Include="Assets\UI\DeviceMarker.uss" />
     <None Include="Assets\UI\BuildingLevelSelector.uxml" />
     <None Include="Assets\UI\UIDashboard.uxml" />
   </ItemGroup>
