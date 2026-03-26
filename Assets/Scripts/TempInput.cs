@@ -1,14 +1,19 @@
+using DigitalTwinsTutorial.Managers;
 using UnityEngine;
 
-public class TempInput : MonoBehaviour
+namespace DigitalTwinsTutorial
 {
-    [SerializeField] private FloorController _floorController;
-
-    void Update()
+    public class TempInput : MonoBehaviour
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        [SerializeField]
+        private FloorController _floorController;
+
+        void Update()
         {
-            _floorController.ActivateExterior();
-        }        
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                _floorController.ActivateExterior();
+            }
+        }
     }
 }

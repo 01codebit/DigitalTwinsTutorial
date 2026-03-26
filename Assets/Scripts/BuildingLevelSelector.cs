@@ -1,9 +1,11 @@
+using DigitalTwinsTutorial.Managers;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class BuildingLevelSelector : MonoBehaviour
 {
-    [SerializeField] private UIDocument _doc;
+    [SerializeField]
+    private UIDocument _doc;
     private VisualElement _root;
     private FloorController _floorController;
 
@@ -31,7 +33,6 @@ public class BuildingLevelSelector : MonoBehaviour
 
         if (!_floorController)
             _floorController = FindFirstObjectByType<FloorController>(FindObjectsInactive.Exclude);
-
     }
 
     private void OnLevelSelected(string floorId)

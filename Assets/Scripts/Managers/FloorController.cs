@@ -1,86 +1,99 @@
+using DigitalTwins;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FloorController : MonoBehaviour
+namespace DigitalTwinsTutorial.Managers
 {
-    [SerializeField]
-    private GameObject _exteriorBuilding;
-
-    private CinemachineCamera _exteriorCamera;
-    private CinemachineCamera _topDownCamera;
-
-    private void Awake()
+    public class FloorController : MonoBehaviour
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+        [SerializeField]
+        private GameObject _exteriorBuilding;
 
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
+        [SerializeField]
+        private DeviceUIController _deviceUIController;
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (_exteriorCamera == null)
+        private CinemachineCamera _exteriorCamera;
+        private CinemachineCamera _topDownCamera;
+
+        public DeviceUIController DeviceUIController { get => _deviceUIController; set => _deviceUIController = value; }
+
+        private void Awake()
         {
-            _exteriorCamera = GameObject
-                .FindWithTag("ExteriorCam")
-                ?.GetComponent<CinemachineCamera>();
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
-        if (_topDownCamera == null)
+        private void OnDestroy()
         {
-            _topDownCamera = GameObject
-                .FindWithTag("TopDownCam")
-                ?.GetComponent<CinemachineCamera>();
+            SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
-        if (_exteriorBuilding == null)
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
-            foreach (var rootObject in scene.GetRootGameObjects())
+            if (_exteriorCamera == null)
             {
-                if (rootObject.CompareTag("ExteriorBuilding"))
+                _exteriorCamera = GameObject
+                    .FindWithTag("ExteriorCam")
+                    ?.GetComponent<CinemachineCamera>();
+            }
+
+            if (_topDownCamera == null)
+            {
+                _topDownCamera = GameObject
+                    .FindWithTag("TopDownCam")
+                    ?.GetComponent<CinemachineCamera>();
+            }
+
+            if (_exteriorBuilding == null)
+            {
+                foreach (var rootObject in scene.GetRootGameObjects())
                 {
-                    _exteriorBuilding = rootObject;
-                    Debug.Log(
-                        $"[FloorController] Found exterior building in scene '{scene.name}'."
-                    );
-                    break;
+                    if (rootObject.CompareTag("ExteriorBuilding"))
+                    {
+                        _exteriorBuilding = rootObject;
+                        Debug.Log(
+                            $"[FloorController] Found exterior building in scene '{scene.name}'."
+                        );
+                        break;
+                    }
                 }
             }
         }
-    }
 
-    public void ActivateFloor(string floorId)
-    {
-        if (_exteriorBuilding)
+        public void ActivateFloor(string floorId)
         {
-            _exteriorBuilding.SetActive(false);
+            if (_exteriorBuilding)
+            {
+                _exteriorBuilding.SetActive(false);
+            }
+
+            foreach (var floor in TwinRegistry.Instance.Floors.Values)
+            {
+                floor.gameObject.SetActive(floor.Id == floorId);
+            }
+
+            _topDownCamera.Priority = 20;
+            _exteriorCamera.Priority = 10;
+
+            _deviceUIController.SpawnMarkersForFloor(floorId);
         }
 
-        foreach (var floor in TwinRegistry.Instance.Floors.Values)
+        public void ActivateExterior()
         {
-            floor.gameObject.SetActive(floor.Id == floorId);
+            if (_exteriorBuilding)
+            {
+                _exteriorBuilding.SetActive(true);
+            }
+
+            foreach (var floor in TwinRegistry.Instance.Floors.Values)
+            {
+                floor.gameObject.SetActive(false);
+            }
+
+            _topDownCamera.Priority = 10;
+            _exteriorCamera.Priority = 20;
+
+            _deviceUIController.DespawnAll();
         }
-
-        _topDownCamera.Priority = 20;
-        _exteriorCamera.Priority = 10;
-    }
-
-    public void ActivateExterior()
-    {
-        if (_exteriorBuilding)
-        {
-            _exteriorBuilding.SetActive(true);
-        }
-
-        foreach (var floor in TwinRegistry.Instance.Floors.Values)
-        {
-            floor.gameObject.SetActive(false);
-        }
-
-        _topDownCamera.Priority = 10;
-        _exteriorCamera.Priority = 20;
     }
 }

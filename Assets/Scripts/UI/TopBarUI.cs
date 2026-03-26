@@ -1,5 +1,4 @@
-using System;
-using Unity.VectorGraphics;
+using DigitalTwinsTutorial.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -19,7 +18,6 @@ public class TopBarUI : MonoBehaviour
     private VisualElement _floorPopup;
 
     private FloorController _floorController;
-
 
     private void Awake()
     {

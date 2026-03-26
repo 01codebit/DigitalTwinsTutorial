@@ -179,6 +179,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2210689607011403519, guid: b37d428898fe01147809a485ac97ec58, type: 3}
   m_PrefabInstance: {fileID: 2604468996449316021}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1653158636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1653158637}
+  - component: {fileID: 1653158638}
+  m_Layer: 0
+  m_Name: DeviceUIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1653158637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653158636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1212306305}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1653158638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653158636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb55a70f2fc2074caadd2cbf5b1e639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+  _markerPrefab: {fileID: 6843813972231256586, guid: 3ec629684323e0440b59810aaa96f8dc, type: 3}
 --- !u!1001 &2604468996449316021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -199,6 +244,10 @@ PrefabInstance:
       propertyPath: _exteriorBuilding
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1636797420610379142, guid: b37d428898fe01147809a485ac97ec58, type: 3}
+      propertyPath: _deviceUIController
+      value: 
+      objectReference: {fileID: 1653158638}
     - target: {fileID: 2548477729620896714, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       propertyPath: LensModeOverride.Enabled
       value: 1
@@ -287,6 +336,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2210689607011403519, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1141169279}
+    - targetCorrespondingSourceObject: {fileID: 2210689607011403519, guid: b37d428898fe01147809a485ac97ec58, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653158637}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8335134994893693867, guid: b37d428898fe01147809a485ac97ec58, type: 3}
       insertIndex: -1

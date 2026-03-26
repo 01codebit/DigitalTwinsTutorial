@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3168065531539625338}
   - component: {fileID: 6198198391332318968}
+  - component: {fileID: 1840434779868232953}
   m_Layer: 0
   m_Name: Marker
   m_TagString: Untagged
@@ -55,3 +56,16 @@ MonoBehaviour:
   m_PivotReferenceSize: 0
   m_Pivot: 0
   m_WorldSpaceCollider: {fileID: 0}
+--- !u!114 &1840434779868232953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843813972231256586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81644eb6465531442adbb37aab517e05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MarkerBinder
+  _billboard: 1
