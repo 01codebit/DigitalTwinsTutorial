@@ -68,15 +68,15 @@ namespace DigitalTwins
 
             foreach (var device in foundDevices)
             {
-                if (!_devices.ContainsKey(device.DeviceId))
+                if (!_devices.ContainsKey(device.Id))
                 {
-                    _devices.Add(device.DeviceId, device);
-                    Debug.Log($"[TwinRegistry] Registered device: {device.DisplayName} (ID: {device.DeviceId})");
+                    _devices.Add(device.Id, device);
+                    Debug.Log($"[TwinRegistry] Registered device: {device.DisplayName} (ID: {device.Id})");
                 }
                 else
                 {
                     Debug.LogWarning(
-                        $"[TwinRegistry] Duplicate device ID detected: {device.DeviceId}. Skipping registration for {device.DisplayName}."
+                        $"[TwinRegistry] Duplicate device ID detected: {device.Id}. Skipping registration for {device.DisplayName}."
                     );
                 }
             }

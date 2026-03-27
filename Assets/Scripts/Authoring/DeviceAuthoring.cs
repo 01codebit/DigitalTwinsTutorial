@@ -1,4 +1,5 @@
 using System;
+using DigitalTwinsTutorial.Managers;
 using UnityEngine;
 
 namespace Authoring
@@ -32,6 +33,20 @@ namespace Authoring
 
         [SerializeField]
         private string _floorId = "F04";
+
+        [Header("<size=14><color=orange>[Streaming (for cameras only)]</color></size>")]
+        [SerializeField]
+        private string _baseStreamUrl = "http://localhost:8080/";
+
+        private string _streamUrl;
+        public string StreamUrl => _streamUrl;
+
+        [Header("<size=14><color=orange>[Fallback Clips (for cameras only)]</color></size>")]
+        [SerializeField]
+        private string _offlineVideoName = "Signal_Lost.mp4";
+
+        [SerializeField]
+        private string _errorVideoName = "Signal_Lost.mp4";
 
         [Header("<size=14><color=orange>[Device State]</color></size>")]
         [SerializeField]
@@ -70,17 +85,18 @@ namespace Authoring
         private Sprite _currentBg;
         private DeviceStatus _lastStatus;
 
-        public string DeviceId => _deviceId;
+        public string Id => _deviceId;
         public string DisplayName => _displayName;
-        public DeviceType DeviceType => _deviceType;
+        public DeviceType Type => _deviceType;
         public string FloorId => _floorId;
-        public DeviceStatus DeviceStatus => _deviceStatus;
+        public DeviceStatus Status => _deviceStatus;
         public Transform Anchor => _markerAnchor ? _markerAnchor : transform;
         public Sprite Icon => _currentIcon;
         public Sprite IconBackground => _currentBg;
 
         private void Awake()
         {
+            UpdateStreamUrl();
             RefreshVisualState();
             _lastStatus = _deviceStatus;
         }
@@ -91,6 +107,10 @@ namespace Authoring
             if (Application.isPlaying && _deviceStatus != _lastStatus)
             {
                 SetStatus(_deviceStatus);
+            }
+            else
+            {
+                UpdateStreamUrl();
             }
 
             if (!Application.isPlaying)
@@ -129,6 +149,7 @@ namespace Authoring
             }
 
             RefreshVisualState();
+            UpdateStreamUrl();
 
             var binder = GetComponentInChildren<MarkerBinder>();
             if (binder)
@@ -136,7 +157,32 @@ namespace Authoring
                 binder.Bind(this);
             }
 
+            if (
+                SidePanelUIController.Instance != null
+                && SidePanelUIController.Instance.IsShowingDevice(this)
+            )
+            {
+                SidePanelUIController.Instance.Show(this);
+            }
+
             _lastStatus = _deviceStatus;
+        }
+
+        private void UpdateStreamUrl()
+        {
+            if (_deviceType != DeviceType.Camera || string.IsNullOrEmpty(_deviceId))
+            {
+                _streamUrl = string.Empty;
+                return;
+            }
+
+            _streamUrl = _deviceStatus switch
+            {
+                DeviceStatus.Operational => $"{_baseStreamUrl}{_deviceId}.mp4",
+                DeviceStatus.Offline => $"{_baseStreamUrl}{_offlineVideoName}",
+                DeviceStatus.Error => $"{_baseStreamUrl}{_errorVideoName}",
+                _ => string.Empty,
+            };
         }
     }
 }

@@ -1,7 +1,6 @@
-using System;
 using Authoring;
+using DigitalTwinsTutorial.Managers;
 using UnityEngine;
-using UnityEngine.iOS;
 using UnityEngine.UIElements;
 
 public class MarkerBinder : MonoBehaviour
@@ -76,6 +75,9 @@ public class MarkerBinder : MonoBehaviour
 
         _activeMarker = this;
         SetActive(true);
+
+        if (_device != null)
+            SidePanelUIController.Instance.Show(_device);
     }
 
     private void SetActive(bool active)

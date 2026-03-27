@@ -86,7 +86,7 @@ MonoBehaviour:
   _panicButtonIcon: {fileID: 21300000, guid: 0f3dd36672c0709499c5dc1db8dbb090, type: 3}
   _operationalBg: {fileID: 21300000, guid: 15701fd7fc7fbce4c9588d7d2e20fa17, type: 3}
   _offlineBg: {fileID: 21300000, guid: dc04311fc036dab46b78c492620f95af, type: 3}
-  _errorBg: {fileID: 21300000, guid: 90446cb420c21414d8ace19db08a7887, type: 3}
+  _errorBg: {fileID: 21300000, guid: dc04311fc036dab46b78c492620f95af, type: 3}
   _customIcon: {fileID: 0}
   _customBg: {fileID: 0}
   _markerAnchor: {fileID: 0}

@@ -1,0 +1,12 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/SidePanel.uss?fileID=7433441132597879392&amp;guid=c694cd81754271c4fba33fdfd34ba479&amp;type=3#SidePanel"/>
+    <ui:VisualElement name="SidePanel" class="side-panel" style="flex-grow: 1; top: 350px; width: 800px; height: 1200px;">
+        <ui:Button text="X" name="CloseBtn" class="close-btn" style="width: 40px; height: 40px; translate: 530px 0; top: 0%; right: -24%;"/>
+        <ui:Label text="Label" name="DeviceName" class="device-label"/>
+        <ui:Label text="Label" name="DeviceType" class="device-label"/>
+        <ui:Label text="Label" name="DeviceStatus" class="device-label"/>
+        <ui:Label text="Label" name="DeviceId" class="device-label"/>
+        <ui:Label text="Label" name="DeviceLocation" class="device-label"/>
+        <ui:VisualElement name="VideoPreview" class="video-preview" style="flex-grow: 1;"/>
+    </ui:VisualElement>
+</ui:UXML>
